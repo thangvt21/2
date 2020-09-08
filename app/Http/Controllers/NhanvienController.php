@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Nhanvien;
 use App\Phongban;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,7 @@ class NhanvienController extends Controller
 
     public function index(Nhanvien $nhanviens)
     {
+//        $phongban = Phongban::where('id','phongban')->get();
         $nhanviens = Nhanvien::latest()->paginate(5);
         return view('nhanviens.index',compact('nhanviens'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -37,10 +39,10 @@ class NhanvienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $p = $id;
-        return view('nhanviens.create',compact('p'));
+        $phongban = Phongban::pluck('name','id')->all();
+        return view('nhanviens.create',compact('phongban'));
         //
     }
 
@@ -50,17 +52,18 @@ class NhanvienController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Nhanvien $nhanvien)
+    public function store(Request $request)
     {
-        request()->validate([
+        $this->validate($request, [
             'name' => 'required',
             'note' => 'required',
-            'nv_id' => 'required'
+            'phongban' => 'required',
         ]);
 
-        Nhanvien::create($request->all());
+        $input = $request->all();
+        $nhanvien = Nhanvien::create($input);
 
-        return redirect()->route('nhanviens.show',$request->nv_id)
+        return redirect()->route('nhanviens.index')
             ->with('success');
         //
     }
@@ -74,8 +77,8 @@ class NhanvienController extends Controller
     public function show($id)
     {
         $phongban = Phongban::find($id);
-        $nhanvienss = Nhanvien::where("nv_id","=",$id)->first();
-        $nhanviens = Nhanvien::Where("nv_id","=",$id)->get();
+        $nhanvienss = Nhanvien::where("phongban","=",$id)->first();
+        $nhanviens = Nhanvien::Where("phongban","=",$id)->get();
         return view('nhanviens.show',compact("nhanviens",'nhanvienss','phongban'))
                 ->with('i');
         //
@@ -121,7 +124,7 @@ class NhanvienController extends Controller
     public function destroy(Nhanvien $nhanvien)
     {
         $nhanvien->delete();
-        return redirect()->route('nhanviens.show',$nhanvien->nv_id)
+        return redirect()->route('nhanviens.index')
             ->with('success');
         //
     }

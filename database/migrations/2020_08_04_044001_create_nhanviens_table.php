@@ -19,8 +19,8 @@ class CreateNhanviensTable extends Migration
             $table->string('name');
             $table->text('note');
             $table->timestamps();
-            $table->foreign('nv_id')->references('id')->on('phongbans')
-                ->onDelete('cascade');
+//            $table->foreign('nv_id')->references('id')->on('phongbans')
+//                ->onDelete('cascade');
         });
     }
 

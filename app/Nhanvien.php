@@ -10,11 +10,11 @@ class Nhanvien extends Model
     protected $table ='nhanviens';
 
     protected $fillable = [
-        'nv_id','name','note',
+        'phongban','name','note',
     ];
 
     public function phongban() {
-        return $this->belongsTo(Phongban::class,"nv_id",'id');
+        return $this->belongsTo(Phongban::class);
     }
     //
 }

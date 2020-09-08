@@ -13,7 +13,7 @@ class Phongban extends Model
         'name','detail',
     ];
     public static function count(int $id){
-        $count = DB::table('nhanviens')->where('nv_id','=',$id)->groupBy('nv_id')->count();
+        $count = DB::table('nhanviens')->where('phongban','=',$id)->groupBy('phongban')->count();
         return $count;
     }
     //

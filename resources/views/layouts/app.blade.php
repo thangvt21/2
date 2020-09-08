@@ -39,6 +39,7 @@
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @else
                         <li><a class="nav-link" href="{{ route('phongbans.index') }}">Quản lí phòng ban</a></li>
+                        <li><a class="nav-link" href="{{ route('nhanviens.index') }}">Quản lí nhân viên</a></li>
                         <li><a class="nav-link" href="{{ route('stuffs.index') }}">Quản lí công cụ dụng cụ</a></li>
                         <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                         <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>

@@ -8,9 +8,9 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-secondary" href="{{ route('phongbans.index') }}"> Quay lại</a>
-                @can('product-create')
-                    <a class="btn btn-success" href="{{ route('nhanviens.create',$phongban->id) }}" data-toggle="tooltip" title="Thêm nhân viên mới"> + </a>
-                @endcan
+{{--                @can('product-create')--}}
+{{--                    <a class="btn btn-success" href="{{ route('nhanviens.create',$phongban->id) }}" data-toggle="tooltip" title="Thêm nhân viên mới"> + </a>--}}
+{{--                @endcan--}}
             </div>
         </div>
     </div>

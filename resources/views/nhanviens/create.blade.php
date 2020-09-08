@@ -8,7 +8,7 @@
                 <h2>Thêm nhân viên</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-secondary" href="{{ route('phongbans.index') }}"> Quay lại</a>
+                <a class="btn btn-secondary" href="{{ route('nhanviens.index') }}"> Quay lại</a>
             </div>
         </div>
     </div>
@@ -25,31 +25,32 @@
         </div>
     @endif
 
-    <form action="{{ route('nhanviens.store') }}" method="POST">
+    {!! Form::open(array('route' => 'nhanviens.store','method'=>'POST')) !!}
         @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nhân viên</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Chi tiết</strong>
-                    <textarea class="form-control" style="height:150px" name="note" placeholder="Chi tiết"></textarea>
+                    {!! Form::text('note', null, array('placeholder' => 'Chi tiết','class' => 'form-control')) !!}
                 </div>
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>NV id</strong>
-                        <textarea class="form-control" name="nv_id"> {{ $p }}</textarea>
+                        <strong>Phòng ban</strong>
+                        {!! Form::select('phongban', $phongban,[], array('class' => 'form-control','multiple')) !!}
                     </div>
                 </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Lưu</button>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
+
 
 @endsection

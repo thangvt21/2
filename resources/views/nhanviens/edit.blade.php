@@ -8,7 +8,7 @@
                 <h2>Cập nhật thông tin</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-secondary" href="{{ route('nhanviens.show',$nhanvien->nv_id) }}"> Quay lại</a>
+                <a class="btn btn-secondary" href="{{ route('nhanviens.index') }}"> Quay lại</a>
             </div>
         </div>
     </div>

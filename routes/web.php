@@ -29,5 +29,4 @@ Route::group(['middlewares' => ['auth']], function() {
     Route::resource('nhanviens','NhanvienController');
     Route::resource('stuffs','StuffController');
     Route::get('/show/{id}','NhanvienController@show')->name('Nhanvien.show');
-    Route::get('/create/{id}','NhanvienController@create');
 });
