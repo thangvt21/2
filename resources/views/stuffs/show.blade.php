@@ -15,7 +15,6 @@
 
     <table class="table table-bordered">
         <tr>
-{{--            <th width="50px">No</th>--}}
             <th>Mã CCDC</th>
             <th>Model/Series</th>
             <th>Loại CCDC</th>
@@ -26,26 +25,22 @@
             <th>Bảo hành</th>
             <th>Ngày bàn giao</th>
             <th>Người tiếp nhận</th>
-            {{--            <th width="50px"></th>--}}
         </tr>
 
-            <tr>
-                @foreach ($stuffs as $stuff)
-                    <td>{{ $stuff->ma_ccdc }}</td>
-                    <td>{{ $stuff->model }}</td>
-                    <td>{{ $stuff->loai }}</td>
-                    <td>{{ $stuff->gia }}</td>
-                    <td>{{ $stuff->soluong }}</td>
-                    <td>{{ $stuff->ngaymua }}</td>
-                    <td>{{ $stuff->nhacungcap }}</td>
-                    <td>{{ $stuff->baohanh }}</td>
-                    <td>{{ $stuff->ngaybangiao }}</td>
+        <tr>
+            @foreach ($stuffs as $stuff)
+                <td>{{ $stuff->ma_ccdc }}</td>
+                <td>{{ $stuff->model }}</td>
+                <td>{{ $stuff->loai }}</td>
+                <td>{{ $stuff->gia }}</td>
+                <td>{{ $stuff->soluong }}</td>
+                <td>{{ $stuff->ngaymua }}</td>
+                <td>{{ $stuff->nhacungcap }}</td>
+                <td>{{ $stuff->baohanh }}</td>
+                <td>{{ $stuff->ngaybangiao }}</td>
 {{--                    <td>{{ $stuff->nhanvienget->name }}</td>--}}
             @endforeach
             </tr>
     </table>
-
-
-{{--    {!! $stuffs->links() !!}--}}
 
 @endsection

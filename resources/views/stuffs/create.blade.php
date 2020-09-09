@@ -35,36 +35,42 @@
                     <input type="text" name="ma_ccdc" class="form-control" placeholder="Mã CCDC">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Model/Series:</strong>
                     <input class="form-control" name="model" placeholder="Model">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Loại CCDC:</strong>
                     <input class="form-control" name="loai" placeholder="Loại CCDC">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Số lượng:</strong>
                     <input class="form-control" name="soluong">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Nhà cung cấp:</strong>
                     <input class="form-control" name="nhacungcap">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Bảo hành:</strong>
                     <input class="form-control" name="baohanh">
                 </div>
             </div>
+
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Chi tiết:</strong>

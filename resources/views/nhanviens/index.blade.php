@@ -33,24 +33,24 @@
             <th width="300px"></th>
         </tr>
         @foreach ($nhanviens as $nhanvien)
-            <tr>
-                <form action="{{ route('nhanviens.destroy',$nhanvien->id) }}" method="POST">
-                    <td>{{ ++$i }}</td>
-                    <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.index'),$nhanvien->id }}">{{ $nhanvien->name }}</a></td>
-                    <td>{{ $nhanvien->note }}</td>
-                    <td>{{ $nhanvien->phongbanget->name }}</td>
-                    <td>
-                        @can('product-edit')
-                            <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
-                        @endcan
-                        @csrf
-                        @method('DELETE')
-                        @can('product-delete')
-                            <button type="submit" style="text-decoration: none;border: none;background-color: white;color: red;"> <i style='font-size:24px' class='far'>&#xf2ed;</i> </button>
+        <tr>
+            <form action="{{ route('nhanviens.destroy',$nhanvien->id) }}" method="POST">
+                @csrf
+                <td>{{ ++$i }}</td>
+                <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.index'),$nhanvien->id }}">{{ $nhanvien->name }}</a></td>
+                <td>{{ $nhanvien->note }}</td>
+                <td>{{ $nhanvien->phongbanget->name }}</td>
+                <td>
+                    @can('product-edit')
+                        <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
                     @endcan
-                </form>
+                @method('DELETE')
+                    @can('product-delete')
+                        <button type="submit" style="text-decoration: none;border: none;background-color: white;color: red;"> <i style='font-size:24px' class='far'>&#xf2ed;</i> </button>
+                    @endcan
                 </td>
-            </tr>
+            </form>
+        </tr>
         @endforeach
     </table>
 

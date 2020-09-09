@@ -34,27 +34,26 @@
         @foreach ($phongbans as $phongban)
             <tr>
                 <form action="{{ route('phongbans.destroy',$phongban->id) }}" method="POST">
-                <td>{{ ++$i }}</td>
+                @csrf
+
+                    <td>{{ ++$i }}</td>
                     <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.show',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Xem danh sách nhân viên">{{ $phongban->name }}</a></td>
-                <td width="180px"> {{ \App\Phongban::count($phongban->id) }} </td>
-                <td>
+                    <td width="180px"> {{ \App\Phongban::count($phongban->id) }} </td>
+                    <td>
                         @can('product-edit')
                         <a class="" href="{{ route('phongbans.edit',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" ><i style='font-size:24px' class='far'>&#xf044;</i></a>
                         @endcan
 
-                        @csrf
                         @method('DELETE')
                         @can('product-delete')
                         <button type="submit" style="text-decoration: none;border: none;background-color: white;color: red;" data-toggle="tooltip" title="Xóa" data-placement="top"> <i style='font-size:24px' class='far'>&#xf2ed;</i> </button>
                         @endcan
-                    </form>
-                </td>
+                    </td>
+                </form>
             </tr>
         @endforeach
     </table>
 
-
     {!! $phongbans->links() !!}
-
 
 @endsection

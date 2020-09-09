@@ -33,11 +33,13 @@
             <th>Phòng ban</th>
 {{--            <th>Nhân viên</th>--}}
             <th></th>
-            {{--            <th width="50px"></th>--}}
+
         </tr>
         @foreach ($stuffs as $stuff)
             <tr>
                 <form action="{{ route('stuffs.destroy',$stuff->id) }}" method="POST">
+                    @csrf
+
                     <td>{{ ++$i }}</td>
                     <td><a style="color:black;text-decoration: none;" href="{{ route('stuffs.show',$stuff->id) }}">{{ $stuff->ma_ccdc }}</a></td>
                     <td>{{ $stuff->loai }}</td>
@@ -46,13 +48,10 @@
                     <td>{{ $stuff->phongbangot->name }}</td>
 {{--                    <td>{{  }}</td>--}}
                     <td>
-
-                        {{--                        <a class="btn btn-info" href="{{ route('phongbans.show',$phongban->id) }}">Show</a>--}}
                         @can('product-edit')
                             <a class="" href="{{ route('stuffs.edit',$stuff->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
                         @endcan
 
-                        @csrf
                         @method('DELETE')
                         @can('product-delete')
                             <button type="submit" style="text-decoration: none;border: none;background-color: white;color: red;"> <i style='font-size:24px' class='far'>&#xf2ed;</i> </button>
@@ -62,7 +61,6 @@
             </tr>
         @endforeach
     </table>
-
 
     {!! $stuffs->links() !!}
 
