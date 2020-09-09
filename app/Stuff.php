@@ -15,4 +15,7 @@ class Stuff extends Model
     public function phongbangot(){
         return $this->belongsTo(Phongban::class,'phongid');
     }
+    public function nhanvienget(){
+        return $this->belongsTo(Nhanvien::class,'nv_id');
+    }
 }

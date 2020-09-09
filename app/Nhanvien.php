@@ -16,5 +16,9 @@ class Nhanvien extends Model
     public function phongbanget() {
         return $this->belongsTo(Phongban::class,'phongban');
     }
+
+    public function stuff(){
+        return $this->hasOne(Stuff::class);
+    }
     //
 }

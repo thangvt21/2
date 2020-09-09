@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Nhanvien;
+use App\Phongban;
 use App\Stuff;
 use Illuminate\Http\Request;
 
@@ -27,7 +29,8 @@ class StuffController extends Controller
      */
     public function create()
     {
-        return view('stuffs.create');
+        $phongban = Phongban::pluck('name','id')->all();
+        return view('stuffs.create',compact('phongban'));
         //
     }
 
@@ -57,9 +60,10 @@ class StuffController extends Controller
      * @param  \App\Stuff  $stuff
      * @return \Illuminate\Http\Response
      */
-    public function show(Stuff $stuff)
+    public function show($id)
     {
-        return view('stuffs.show');
+        $stuffs = Stuff::where('id','=',$id)->get();
+        return view('stuffs.show',compact('stuffs'));
         //
     }
 

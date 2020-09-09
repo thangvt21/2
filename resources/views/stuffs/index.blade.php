@@ -27,10 +27,11 @@
         <tr>
             <th width="50px">No</th>
             <th width="150px">Mã CCDC</th>
-            <th width="150px">Model/Series</th>
             <th width="150px">Loại CCDC</th>
+            <th>Số lượng</th>
             <th width="150px">Trạng thái</th>
             <th>Phòng ban</th>
+{{--            <th>Nhân viên</th>--}}
             <th></th>
             {{--            <th width="50px"></th>--}}
         </tr>
@@ -39,10 +40,11 @@
                 <form action="{{ route('stuffs.destroy',$stuff->id) }}" method="POST">
                     <td>{{ ++$i }}</td>
                     <td><a style="color:black;text-decoration: none;" href="{{ route('stuffs.show',$stuff->id) }}">{{ $stuff->ma_ccdc }}</a></td>
-                    <td>{{ $stuff->model }}</td>
                     <td>{{ $stuff->loai }}</td>
+                    <td>{{ $stuff->soluong }}</td>
                     <td>{{ $stuff->status }}</td>
                     <td>{{ $stuff->phongbangot->name }}</td>
+{{--                    <td>{{  }}</td>--}}
                     <td>
 
                         {{--                        <a class="btn btn-info" href="{{ route('phongbans.show',$phongban->id) }}">Show</a>--}}

@@ -28,34 +28,65 @@
 
     <form action="{{ route('stuffs.store') }}" method="POST">
         @csrf
-
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Mã CCDC:</strong>
                     <input type="text" name="ma_ccdc" class="form-control" placeholder="Mã CCDC">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Model/Series:</strong>
                     <input class="form-control" name="model" placeholder="Model">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Loại CCDC:</strong>
                     <input class="form-control" name="loai" placeholder="Loại CCDC">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Số lượng:</strong>
+                    <input class="form-control" name="soluong">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Nhà cung cấp:</strong>
+                    <input class="form-control" name="nhacungcap">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Bảo hành:</strong>
+                    <input class="form-control" name="baohanh">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                     <strong>Chi tiết:</strong>
                     <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
                 </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Phòng ban:</strong>
+                    {!! Form::select('phongban',$phongban,array('class' => 'form-control','multiple')) !!}
+                </div>
+            </div>
+
+{{--            <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                <div class="form-group">--}}
+{{--                    <strong>Nhân viên:</strong>--}}
+{{--                    {!! Form::select('nhanvien',$nhanvien,array('class' => 'form-control','multiple')) !!}--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Lưu</button>
             </div>
         </div>
 
