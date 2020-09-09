@@ -38,7 +38,7 @@
                     <td>{{ ++$i }}</td>
                     <td>{{ $nhanvien->name }}</td>
                     <td>{{ $nhanvien->note }}</td>
-
+{{--                    <td>{{ $phongban->name }}</td>--}}
     {{------------------ Các nút chức năng ---------------------}}
                     <td>
                         @can('product-edit')

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stuff extends Model
 {
-    protected $table = "full_item_tables";
+    protected $table = "stuffs";
 
     protected $fillable = [
         'ma_ccdc','model','loai','detail'

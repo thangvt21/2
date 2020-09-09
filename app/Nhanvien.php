@@ -13,8 +13,8 @@ class Nhanvien extends Model
         'phongban','name','note',
     ];
 
-    public function phongban() {
-        return $this->belongsTo(Phongban::class);
+    public function phongbanget() {
+        return $this->belongsTo(Phongban::class,'phongban');
     }
     //
 }

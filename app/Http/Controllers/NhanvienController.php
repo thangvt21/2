@@ -25,9 +25,8 @@ class NhanvienController extends Controller
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
 
-    public function index(Nhanvien $nhanviens)
+    public function index()
     {
-//        $phongban = Phongban::where('id','phongban')->get();
         $nhanviens = Nhanvien::latest()->paginate(5);
         return view('nhanviens.index',compact('nhanviens'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

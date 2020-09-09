@@ -29,7 +29,7 @@
             <th>No</th>
             <th>Nhân viên</th>
             <th>Chi tiết</th>
-{{--            <th>Phòng ban</th>--}}
+            <th>Phòng ban</th>
             <th width="300px"></th>
         </tr>
         @foreach ($nhanviens as $nhanvien)
@@ -38,7 +38,7 @@
                     <td>{{ ++$i }}</td>
                     <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.index'),$nhanvien->id }}">{{ $nhanvien->name }}</a></td>
                     <td>{{ $nhanvien->note }}</td>
-{{--                    <td>{{ $nhanvien->phongban->name }}</td>--}}
+                    <td>{{ $nhanvien->phongbanget->name }}</td>
                     <td>
                         @can('product-edit')
                             <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
