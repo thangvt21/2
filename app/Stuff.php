@@ -12,7 +12,7 @@ class Stuff extends Model
         'ma_ccdc','model','loai','detail'
     ];
 
-    public function phongban(){
-        return $this->belongsTo(Phongban::class);
+    public function phongbangot(){
+        return $this->belongsTo(Phongban::class,'phongid');
     }
 }

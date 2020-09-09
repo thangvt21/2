@@ -29,7 +29,8 @@
             <th width="150px">Mã CCDC</th>
             <th width="150px">Model/Series</th>
             <th width="150px">Loại CCDC</th>
-            <th width="300px">Chi tiết</th>
+            <th width="150px">Trạng thái</th>
+            <th>Phòng ban</th>
             <th></th>
             {{--            <th width="50px"></th>--}}
         </tr>
@@ -40,7 +41,8 @@
                     <td><a style="color:black;text-decoration: none;" href="{{ route('stuffs.show',$stuff->id) }}">{{ $stuff->ma_ccdc }}</a></td>
                     <td>{{ $stuff->model }}</td>
                     <td>{{ $stuff->loai }}</td>
-                    <td>{{ $stuff->detail }}</td>
+                    <td>{{ $stuff->status }}</td>
+                    <td>{{ $stuff->phongbangot->name }}</td>
                     <td>
 
                         {{--                        <a class="btn btn-info" href="{{ route('phongbans.show',$phongban->id) }}">Show</a>--}}
