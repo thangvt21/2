@@ -75,7 +75,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Phòng ban:</strong>
-                    {!! Form::select('phongban',$phongban,array('class' => 'form-control','multiple')) !!}
+                    {!! Form::select('phongid',$phongban,array('class' => 'form-control','multiple')) !!}
                 </div>
             </div>
 

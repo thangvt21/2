@@ -9,7 +9,7 @@ class Stuff extends Model
     protected $table = "stuffs";
 
     protected $fillable = [
-        'ma_ccdc','model','loai','detail'
+        'ma_ccdc','model','loai','detail','soluong','nhacungcap','baohanh','phongid'
     ];
 
     public function phongbangot(){

@@ -42,13 +42,18 @@ class StuffController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        $this->validate($request, [
             'ma_ccdc' => 'required',
             'model' => 'required',
             'loai' => 'required',
+            'soluong' => 'required',
             'detail' => 'required',
+            'phongid' => 'required'
         ]);
-        Stuff::create($request->all());
+
+        $input = $request->all();
+        $stuff = Stuff::create($input);
+
         return redirect()->route('stuffs.index')
             ->with('success');
         //
