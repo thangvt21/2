@@ -37,7 +37,7 @@
                 @csrf
 
                     <td>{{ ++$i }}</td>
-                    <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.show',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Xem danh sách nhân viên">{{ $phongban->name }}</a></td>
+                    <td><a style="color:black;text-decoration: none;" href="{{ route('nhanvien.show',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Xem danh sách nhân viên">{{ $phongban->name }}</a></td>
                     <td width="180px"> {{ \App\Phongban::count($phongban->id) }} </td>
                     <td>
                         @can('product-edit')
