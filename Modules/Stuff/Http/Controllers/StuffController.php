@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\Stuff\Http\Controllers;
 
-use App\Nhanvien;
 use App\Phongban;
 use App\Stuff;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class StuffController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Renderable
      */
     public function index()
     {
         $stuffs = Stuff::latest()->paginate(5);
-        return view('stuffs.index',compact('stuffs'))
+        return view('stuff::index',compact('stuffs'))
             ->with('i', (\request()->input('page',1) - 1) * 5);
         //
     }
@@ -30,7 +30,7 @@ class StuffController extends Controller
     public function create()
     {
         $phongban = Phongban::pluck('name','id')->all();
-        return view('stuffs.create',compact('phongban'));
+        return view('stuff::create',compact('phongban'));
         //
     }
 
@@ -42,7 +42,7 @@ class StuffController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'ma_ccdc' => 'required',
             'model' => 'required',
             'loai' => 'required',
@@ -68,7 +68,7 @@ class StuffController extends Controller
     public function show($id)
     {
         $stuffs = Stuff::where('id','=',$id)->get();
-        return view('stuffs.show',compact('stuffs'));
+        return view('stuff::show',compact('stuffs'));
         //
     }
 
@@ -80,7 +80,7 @@ class StuffController extends Controller
      */
     public function edit(Stuff $stuff)
     {
-        return view('stuffs.edit',compact('stuff'));
+        return view('stuff::edit',compact('stuff'));
         //
     }
 
@@ -114,7 +114,7 @@ class StuffController extends Controller
     {
         $stuff->delete();
         return redirect()->route('stuffs.index')
-                        ->with('success');
+            ->with('success');
         //
     }
 }

@@ -55,7 +55,7 @@ class NhanvienController extends Controller
         $input = $request->all();
         $nhanvien = Nhanvien::create($input);
 
-        return redirect()->route('nhanvien::index')->with('success');
+        return redirect()->route('nhanviens.index')->with('success');
         //
     }
 
@@ -95,7 +95,7 @@ class NhanvienController extends Controller
             'note' => 'required',
         ]);
         $nhanvien->update($request->all());
-        return redirect()->route('nhanvien::show',$nhanvien->nv_id)->with('success');
+        return redirect()->route('nhanviens.show',$nhanvien->nv_id)->with('success');
         //
     }
 
@@ -107,7 +107,7 @@ class NhanvienController extends Controller
     public function destroy(Nhanvien $nhanvien)
     {
         $nhanvien->delete();
-        return redirect()->route('nhanvien::index')->with('success');
+        return redirect()->route('nhanviens.index')->with('success');
         //
     }
 }

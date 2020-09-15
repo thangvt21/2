@@ -11,6 +11,7 @@
 |
 */
 
-Route::prefix('phongban')->group(function() {
-    Route::get('/', 'PhongbanController@index');
+Auth::routes();
+Route::group(['middlewares' => ['auth']], function() {
+    Route::resource('phongbans', 'PhongbanController');
 });
