@@ -17,7 +17,8 @@
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.1",
         "nwidart/laravel-modules": "^7.2",
-        "spatie/laravel-permission": "^3.13"
+        "spatie/laravel-permission": "^3.13",
+      "ext-mysql_xdevapi": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -38,7 +39,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Modules\\": "Modules/"
         },
         "classmap": [
             "database/seeds",

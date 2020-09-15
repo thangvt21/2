@@ -1,11 +1,11 @@
 {
-    "name": "Nhanvien",
-    "alias": "nhanvien",
+    "name": "Stuff",
+    "alias": "stuff",
     "description": "",
     "keywords": [],
     "order": 0,
     "providers": [
-        "Modules\\Nhanvien\\Providers\\NhanvienServiceProvider"
+        "Modules\\Stuff\\Providers\\StuffServiceProvider"
     ],
     "aliases": {},
     "files": [],
