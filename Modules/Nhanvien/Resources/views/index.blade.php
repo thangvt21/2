@@ -9,7 +9,7 @@
             <div class="pull-right">
                 <a class="btn btn-secondary" href="{{ route('phongbans.index') }}"> Quay lại</a>
                 @can('product-create')
-                    <a class="btn btn-success" href="{{ route('nhanvien::create') }}" data-toggle="tooltip" title="Thêm nhân viên mới"> + </a>
+                    <a class="btn btn-success" href="{{ route('nhanviens.create') }}" data-toggle="tooltip" title="Thêm nhân viên mới"> + </a>
                 @endcan
             </div>
 
@@ -34,15 +34,15 @@
         </tr>
         @foreach ($nhanviens as $nhanvien)
         <tr>
-            <form action="{{ route('nhanvien::destroy',$nhanvien->id) }}" method="POST">
+            <form action="{{ route('nhanviens.destroy',$nhanvien->id) }}" method="POST">
                 @csrf
                 <td>{{ ++$i }}</td>
-                <td><a style="color:black;text-decoration: none;" href="{{ route('nhanvien::index'),$nhanvien->id }}">{{ $nhanvien->name }}</a></td>
+                <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.index'),$nhanvien->id }}">{{ $nhanvien->name }}</a></td>
                 <td>{{ $nhanvien->note }}</td>
                 <td>{{ $nhanvien->phongbanget->name }}</td>
                 <td>
                     @can('product-edit')
-                        <a class="" href="{{ route('nhanvien::edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
+                        <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
                     @endcan
                 @method('DELETE')
                     @can('product-delete')

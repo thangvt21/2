@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +10,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
-Route::group(['middlewares' => ['auth']], function() {
-    Route::resource('nhanviens','NhanvienController');
-    Route::get('/show/{id}', 'NhanvienController@show');
+
+Route::prefix('phongban')->group(function() {
+    Route::get('/', 'PhongbanController@index');
 });

@@ -26,10 +26,6 @@ Route::group(['middlewares' => ['auth']], function() {
     Route::resource('phongbans','PhongbanController');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
-    Route::prefix('nhanvien')->group(function() {
-        Route::get('/', 'NhanvienController@index');
-    });
     Route::resource('stuffs','StuffController');
-    Route::get('/nhanviens/show/{id}','NhanvienController@show')->name('Nhanvien.show');
     Route::get('/stuffs/show/{id}','StuffController@show')->name('Stuff.show');
 });

@@ -24,8 +24,8 @@ class NhanvienController extends Controller
 
     public function index()
     {
-        $nhanvien = Nhanvien::latest()->paginate(5);
-        return view('nhanvien::index',compact('nhanvien'))
+        $nhanviens = Nhanvien::latest()->paginate(5);
+        return view('nhanvien::index',compact('nhanviens'))
                 ->with('i', (\request()->input('page', 1) - 1) * 5);
     }
 
@@ -46,7 +46,7 @@ class NhanvienController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'note' => 'required',
             'phongban' => 'required',
