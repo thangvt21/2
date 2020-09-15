@@ -51,6 +51,13 @@
                 </div>
             </div>
 
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <strong>Phòng ban:</strong>
+                    {!! Form::select('phongid',$phongban,array('class' => 'form-control','multiple')) !!}
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Chi tiết:</strong>

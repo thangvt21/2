@@ -38,7 +38,7 @@
                 <td>{{ $stuff->nhacungcap }}</td>
                 <td>{{ $stuff->baohanh }}</td>
                 <td>{{ $stuff->ngaybangiao }}</td>
-{{--                    <td>{{ $stuff->nhanvienget->name }}</td>--}}
+                <td>{{ $stuff->nhanvienget->name }}</td>
             @endforeach
             </tr>
     </table>
