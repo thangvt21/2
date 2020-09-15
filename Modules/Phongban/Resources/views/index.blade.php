@@ -41,7 +41,7 @@
                     <td width="180px"> {{ Modules\Phongban\Entities\Phongban::count($phongban->id) }} </td>
                     <td>
                         @can('product-edit')
-                        <a class="" href="{{ route('phongbans.edit',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" ><i style='font-size:24px' class='far'>&#xf044;</i></a>
+                        <a class="" href="{{ route('phongbans.edit',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" ><i style='font-size:24px; color: black' class='far'>&#xf044;</i></a>
                         @endcan
 
                         @method('DELETE')

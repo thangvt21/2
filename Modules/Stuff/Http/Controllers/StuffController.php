@@ -48,7 +48,8 @@ class StuffController extends Controller
             'loai' => 'required',
             'soluong' => 'required',
             'detail' => 'required',
-            'phongid' => 'required'
+            'phongid' => 'required',
+            'status' => 'required'
         ]);
 
         $input = $request->all();

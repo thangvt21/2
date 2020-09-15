@@ -49,7 +49,7 @@
 {{--                    <td>{{  }}</td>--}}
                     <td>
                         @can('product-edit')
-                            <a class="" href="{{ route('stuffs.edit',$stuff->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
+                            <a class="" href="{{ route('stuffs.edit',$stuff->id) }}"><i style='font-size:24px;color: black' class='far'>&#xf044;</i></a>
                         @endcan
 
                         @method('DELETE')
