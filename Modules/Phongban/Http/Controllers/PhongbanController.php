@@ -2,7 +2,7 @@
 
 namespace Modules\Phongban\Http\Controllers;
 
-use App\Phongban;
+use Modules\Phongban\Entities\Phongban;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

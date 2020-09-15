@@ -2,8 +2,8 @@
 
 namespace Modules\Nhanvien\Http\Controllers;
 
-use App\Nhanvien;
-use App\Phongban;
+use Modules\Nhanvien\Entities\Nhanvien;
+use Modules\Phongban\Entities\Phongban;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -95,7 +95,7 @@ class NhanvienController extends Controller
             'note' => 'required',
         ]);
         $nhanvien->update($request->all());
-        return redirect()->route('nhanviens.show',$nhanvien->nv_id)->with('success');
+        return redirect()->route('nhanviens.show',$nhanvien->phongban)->with('success');
         //
     }
 

@@ -38,7 +38,7 @@
 
                     <td>{{ ++$i }}</td>
                     <td><a style="color:black;text-decoration: none;" href="{{ route('nhanviens.show',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Xem danh sách nhân viên">{{ $phongban->name }}</a></td>
-                    <td width="180px"> {{ \App\Phongban::count($phongban->id) }} </td>
+                    <td width="180px"> {{ Modules\Phongban\Entities\Phongban::count($phongban->id) }} </td>
                     <td>
                         @can('product-edit')
                         <a class="" href="{{ route('phongbans.edit',$phongban->id) }}" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa" ><i style='font-size:24px' class='far'>&#xf044;</i></a>

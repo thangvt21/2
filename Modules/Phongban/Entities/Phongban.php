@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace Modules\Phongban\Entities;
 
+use Modules\Nhanvien\Entities\Nhanvien;
+use Modules\Stuff\Entities\Stuff;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\DocBlock\Tags\Reference\Reference;
 
 class Phongban extends Model
 {

@@ -1,9 +1,10 @@
 <?php
 
-namespace App;
+namespace Modules\Nhanvien\Entities;
 
+use Modules\Phongban\Entities\Phongban;
+use Modules\Stuff\Entities\Stuff;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Nhanvien extends Model
 {
@@ -20,5 +21,4 @@ class Nhanvien extends Model
     public function stuff(){
         return $this->hasOne(Stuff::class);
     }
-    //
 }

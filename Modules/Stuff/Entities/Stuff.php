@@ -1,7 +1,9 @@
 <?php
 
-namespace App;
+namespace Modules\Stuff\Entities;
 
+use Modules\Phongban\Entities\Phongban;
+use Modules\Nhanvien\Entities\Nhanvien;
 use Illuminate\Database\Eloquent\Model;
 
 class Stuff extends Model

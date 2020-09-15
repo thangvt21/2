@@ -2,8 +2,8 @@
 
 namespace Modules\Stuff\Http\Controllers;
 
-use App\Phongban;
-use App\Stuff;
+use Modules\Phongban\Entities\Phongban;
+use Modules\Stuff\Entities\Stuff;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
