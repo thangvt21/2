@@ -7,6 +7,26 @@
             <div class="pull-left">
                 <h2>Công cụ dụng cụ</h2>
             </div>
+
+            {!! Form::open(['route' => ['stuffs.index']]) !!}
+            <div class="row">
+                <div class='col-md-3'>
+                    <input type="text" class='form-control form-control-lg' name="phongban" id="phongban" placeholder="Phòng ban" data-action="{{ route('stuffs.index') }}"/>
+                    <div id='phongban' style='text-align:left'></div>
+                </div>
+                <div class='col-md-3'>
+                    <input type="text" class='form-control form-control-lg' name="loai_ccdc" id="loai" placeholder="Loại công cụ dụng cụ" data-action="{{ route('stuffs.index') }}"/>
+                    <div id='searchresultcity' style='text-align:left'></div>
+                </div>
+                <div class='col-md-3'>
+                    <input type="text" class='form-control form-control-lg' name="status" id="status" placeholder="Trạng thái" data-action="{{ route('stuffs.index') }}"/>
+                    <div id='searchresultcity' style='text-align:left'></div>
+                </div>
+                {{ Form::submit('Tìm kiếm', array('class'=>'btn btn-success btn-lg btn-block col-md-2'))}}
+            </div>
+
+            {!! Form::close() !!}
+
             <div class="pull-right">
                 @can('product-create')
                     <a class="btn btn-success" href="{{ route('stuffs.create') }}"> + </a>

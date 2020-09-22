@@ -18,7 +18,7 @@
         "laravelcollective/html": "^6.1",
         "nwidart/laravel-modules": "^7.2",
         "spatie/laravel-permission": "^3.13",
-      "ext-mysql_xdevapi": "*"
+        "yajra/laravel-datatables-oracle": "^9.11"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
