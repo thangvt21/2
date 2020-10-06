@@ -8,6 +8,10 @@
                 <h2>Công cụ dụng cụ</h2>
             </div>
 
+            <div class="export">
+                <a href ="{{ route('export') }}" class="btn btn-info export" id="export-button"> Export file </a>
+            </div>
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
