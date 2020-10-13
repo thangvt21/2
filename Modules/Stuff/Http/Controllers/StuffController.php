@@ -12,10 +12,17 @@ class StuffController extends Controller
 {
     public function index(Request $request){
         if ($request->ajax()) {
-            $data = Stuff::select('*');
-            return DataTables::of($data)
-                ->make(true);
-        }
+            $data = Stuff::query();
+            $phongban = (!empty($_GET["phongban"])) ? ($_GET["phongban"]) : ('');
+            $loai = (!empty($_GET["loai"])) ? ($_GET["loai"]) : ('');
+            $status = (!empty($_GET["status"])) ? ($_GET["status"]) : ('');
+            if ($phongban && $loai && $status) {
+                $data->whereRaw("stuffs.phongban = '" . $phongban . "'AND stuffs.loai = '" . $loai . "'AND stuffs.status = '" . $status . "'");
+            }
+            $stuffs = $data->select('*');
+            return DataTables::of($stuffs)
+                    ->make(true);
+            }
         return view('stuff::index');
         //
     }
@@ -69,11 +76,6 @@ class StuffController extends Controller
         $stuffs = Stuff::where('id','=',$id)->get();
         return view('stuff::show',compact('stuffs'));
         //
-    }
-
-    public function filter(Request $request, Stuff $stuff){
-
-        return $stuff->get();
     }
     /**
      * Show the form for editing the specified resource.

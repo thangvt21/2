@@ -16,7 +16,7 @@ use Modules\Stuff\Http\Controllers\StuffController;
 
 Auth::routes();
 Route::group(['middlewares' => ['auth']], function() {
-//    Route::resource('stuffs', 'StuffController');
+    Route::resource('stuffs', 'StuffController');
     Route::get('/stuffs/show/{id}', 'StuffController@show')->name('Stuff.show');
 
 });

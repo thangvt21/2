@@ -78,49 +78,106 @@
                 <h2>Công cụ dụng cụ</h2>
             </div>
 
-            <div class="export">
-                <a href ="{{ route('export') }}" class="btn btn-info export" id="export-button"> Export file </a>
-            </div>
-
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
+       <div class="row">
+           <div class="form-group col-md-3">
+               <div class="controls">
+                   <label for="phongban"><h5>Phòng ban</h5></label>
+                   <select name="phongban" id="phongban" class="form-control">
+                       <option value="Phòng IT">Phòng IT</option>
+                       <option value="Phòng Phục vụ khách hàng">Phòng phục vụ khách hàng</option>
+                       <option value="Phòng Kế toán">Phòng kế toán</option>
+                       <option value="Kho vận">Kho vận</option>
+                       <option value="Phòng Marketing">Phòng Marketing</option>
+                       <option value="Phòng Hành chính nhân sự">Phòng Hành chính nhân sự</option>
+                   </select>
+               </div>
+           </div>
 
-    <table id="myTables" class="table table-bordered data-table">
+           <div class="form-group col-md-3">
+               <div class="controls">
+                   <label for="loai"><h5>Loại CCDC</h5></label>
+                   <select name="loai" id="loai" class="form-control">
+                       <option value="Máy tính bàn">Máy tính bàn</option>
+                   </select>
+               </div>
+           </div>
+           <div class="form-group col-md-3">
+               <div class="controls">
+                   <label for="status"><h5>Trạng thái</h5></label>
+                   <select name="status" id="status" class="form-control">
+                       <option value="Đang sử dụng">Đang sử dụng</option>
+                       <option value="Lưu kho">Lưu kho</option>
+                       <option value="Chờ thanh lý">Chờ thanh lý</option>
+                   </select>
+               </div>
+           </div>
+
+           <div class="form-group col-md-2" style="margin-top: 40px;">
+               <div class="controls">
+                   <button type="text" id="btn-search" class="btn btn-info form-control">Tìm kiếm</button>
+               </div>
+           </div>
+       </div>
+       </div>
+
+       <div class="container" style="margin-bottom: 10px;">
+                @can('product-create')
+                    <a class="btn btn-success" href="{{ route('stuffs.create') }}" data-toggle="tooltip" title="Thêm công cụ mới"> + </a>
+                @endcan
+                <a href ="{{ route('export','$stuffs') }}" class="btn btn-secondary export" id="export-button"> EXCEL </a>
+       </div>
+
+    <div class="container-fluid">
+      <table id="myTables" class="table table-bordered data-table">
         <thead>
         <tr>
             <th>No</th>
             <th>Mã CCDC</th>
             <th>Loại CCDC</th>
             <th>Trạng thái</th>
+            <th>Phòng ban</th>
+{{--            <th></th>--}}
         </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-        </div>
+    </div>
     </div>
     </div>
 </main>
 </div>
 </body>
 <script type="text/javascript">
-    $(function () {
-
-        var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('stuffs.index') }}",
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'ma_ccdc', name: 'ma_ccdc'},
-                {data: 'loai', name: 'loai'},
-                {data: 'status', name: 'status'},
-            ]
-        });
-
+        $(document).ready( function () {
+            $('#myTables').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('stuffs.index') }}",
+                    type: 'GET',
+                    data: function (d) {
+                        d.phongban = $('#phongban').val();
+                        d.loai = $('#loai').val();
+                        d.status = $('#status').val();
+                    }
+                },
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'ma_ccdc', name: 'ma_ccdc'},
+                    {data: 'loai', name: 'loai'},
+                    {data: 'status', name: 'status'},
+                    {data: 'phongban', name: 'phongban'},
+                ]
+            });
+    });
+    $('#btn-search').click(function () {
+        $('#myTables').DataTable().draw(true);
     });
 </script>
 </html>
