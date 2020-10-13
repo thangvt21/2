@@ -1,5 +1,7 @@
 {
     "Nhanvien": true,
     "Phongban": true,
-    "Stuff": true
+    "Stuff": true,
+    "Entities": true,
+    "StuffSearch": true
 }

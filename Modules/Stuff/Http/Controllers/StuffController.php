@@ -4,21 +4,19 @@ namespace Modules\Stuff\Http\Controllers;
 
 use Modules\Phongban\Entities\Phongban;
 use Modules\Stuff\Entities\Stuff;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Yajra\DataTables\DataTables;
 
 class StuffController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function index()
-    {
-        $stuffs = Stuff::latest()->paginate(5);
-        return view('stuff::index',compact('stuffs'))
-            ->with('i', (\request()->input('page',1) - 1) * 5);
+    public function index(Request $request){
+        if ($request->ajax()) {
+            $data = Stuff::select('*');
+            return DataTables::of($data)
+                ->make(true);
+        }
+        return view('stuff::index');
         //
     }
 
@@ -73,6 +71,10 @@ class StuffController extends Controller
         //
     }
 
+    public function filter(Request $request, Stuff $stuff){
+
+        return $stuff->get();
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -110,9 +112,10 @@ class StuffController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Stuff  $stuff
+     * @param
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Stuff $stuff)
     {
         $stuff->delete();

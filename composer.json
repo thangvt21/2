@@ -13,12 +13,14 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0",
+        "laravel/tinker": "^2.4",
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.1",
+        "maatwebsite/excel": "^3.1",
         "nwidart/laravel-modules": "^7.2",
         "spatie/laravel-permission": "^3.13",
-      "ext-mysql_xdevapi": "*"
+        "yajra/laravel-datatables": "^1.5",
+        "yajra/laravel-datatables-oracle": "^9.11"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
