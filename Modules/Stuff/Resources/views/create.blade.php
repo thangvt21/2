@@ -80,6 +80,13 @@
 
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
+                    <strong>Trạng thái:</strong>
+                    {!! Form::select('status',array('Đang sử dụng' => 'Đang sử dụng','Lưu kho' => 'Lưu kho','Chờ thanh lý' => 'Chờ thanh lý')) !!}
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
                     <strong>Chi tiết:</strong>
                     <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
                 </div>

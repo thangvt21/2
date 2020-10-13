@@ -42,7 +42,7 @@
                 <td>{{ $nhanvien->phongbanget->name }}</td>
                 <td>
                     @can('product-edit')
-                        <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px' class='far'>&#xf044;</i></a>
+                        <a class="" href="{{ route('nhanviens.edit',$nhanvien->id) }}"><i style='font-size:24px;color: black' class='far'>&#xf044;</i></a>
                     @endcan
                 @method('DELETE')
                     @can('product-delete')

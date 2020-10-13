@@ -48,7 +48,8 @@ class StuffController extends Controller
             'loai' => 'required',
             'soluong' => 'required',
             'detail' => 'required',
-            'phongid' => 'required'
+            'phongid' => 'required',
+            'status' => 'required'
         ]);
 
         $input = $request->all();
@@ -80,7 +81,8 @@ class StuffController extends Controller
      */
     public function edit(Stuff $stuff)
     {
-        return view('stuff::edit',compact('stuff'));
+        $phongban = Phongban::pluck('name','id')->all();
+        return view('stuff::edit',compact('stuff','phongban'));
         //
     }
 
@@ -98,6 +100,7 @@ class StuffController extends Controller
             'model' => 'required',
             'loai'  => 'required',
             'detail' => 'required',
+            'phongid' => 'required'
         ]);
         $stuff->update($request->all());
         return redirect()->route('stuffs.index');

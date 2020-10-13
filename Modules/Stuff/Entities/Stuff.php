@@ -11,7 +11,7 @@ class Stuff extends Model
     protected $table = "stuffs";
 
     protected $fillable = [
-        'ma_ccdc','model','loai','detail','soluong','nhacungcap','baohanh','phongid'
+        'ma_ccdc','model','loai','detail','soluong','nhacungcap','baohanh','phongid','status'
     ];
 
     public function phongbangot(){
