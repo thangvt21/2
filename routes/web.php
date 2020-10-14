@@ -20,6 +20,6 @@ Route::group(['middlewares' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
-    Route::get('export','ExportController@export')->name('export');
+    Route::get('export/$id','ExportController@export')->name('export');
 });
 

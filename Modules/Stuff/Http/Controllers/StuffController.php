@@ -21,8 +21,15 @@ class StuffController extends Controller
             }
             $stuffs = $data->select('*');
             return DataTables::of($stuffs)
+                    ->addColumn('action', function ($data){
+                        $button = '<a href="/stuffs/'.$data->id.'/edit" class="btn btn-secondary" style="margin-right: 10px;">Edit</a>';
+                        $button .= '<button type="submit" id="'.$data->id.'" class="btn btn-secondary">del</button>';
+                        return $button;
+                    })
+                    ->rawColumns(['action'])
                     ->make(true);
             }
+
         return view('stuff::index');
         //
     }

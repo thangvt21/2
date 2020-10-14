@@ -136,11 +136,14 @@
       <table id="myTables" class="table table-bordered data-table">
         <thead>
         <tr>
-            <th>No</th>
-            <th>Mã CCDC</th>
-            <th>Loại CCDC</th>
-            <th>Trạng thái</th>
-            <th>Phòng ban</th>
+            <th width="20px">No</th>
+            <th width="80px">Mã CCDC</th>
+            <th width="100px">Loại CCDC</th>
+            <th width="200px">Trạng thái</th>
+            <th width="300px">Phòng ban</th>
+            @can('product-edit')
+            <th width="150px"></th>
+            @endcan
 {{--            <th></th>--}}
         </tr>
         </thead>
@@ -173,6 +176,7 @@
                     {data: 'loai', name: 'loai'},
                     {data: 'status', name: 'status'},
                     {data: 'phongban', name: 'phongban'},
+                    {data: 'action', name: 'action', orderable : false, searchable : false},
                 ]
             });
     });
