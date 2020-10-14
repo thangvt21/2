@@ -88,9 +88,9 @@
                <div class="controls">
                    <label for="phongban"><h5>Phòng ban</h5></label>
                    <select name="phongban" id="phongban" class="form-control">
-                       <option value="Phòng IT">Phòng IT</option>
-                       <option value="Phòng Phục vụ khách hàng">Phòng phục vụ khách hàng</option>
-                       <option value="Phòng Kế toán">Phòng kế toán</option>
+{{--                       <option value="Phòng IT">Phòng IT</option>--}}
+                       <option value="Phòng Phục vụ khách hàng">Phòng Phục vụ khách hàng</option>
+                       <option value="Phòng Kế toán">Phòng Kế toán</option>
                        <option value="Kho vận">Kho vận</option>
                        <option value="Phòng Marketing">Phòng Marketing</option>
                        <option value="Phòng Hành chính nhân sự">Phòng Hành chính nhân sự</option>
@@ -140,11 +140,9 @@
             <th width="80px">Mã CCDC</th>
             <th width="100px">Loại CCDC</th>
             <th width="200px">Trạng thái</th>
-            <th width="300px">Phòng ban</th>
-            @can('product-edit')
-            <th width="150px"></th>
-            @endcan
-{{--            <th></th>--}}
+            <th width="350px">Phòng ban</th>
+            <th width="40px"></th>
+            <th width="40px"></th>
         </tr>
         </thead>
         <tbody>
@@ -161,6 +159,7 @@
             $('#myTables').DataTable({
                 processing: true,
                 serverSide: true,
+                select: true,
                 ajax: {
                     url: "{{ route('stuffs.index') }}",
                     type: 'GET',
@@ -170,6 +169,9 @@
                         d.status = $('#status').val();
                     }
                 },
+                select: {
+                    style: 'multi'
+                },
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'ma_ccdc', name: 'ma_ccdc'},
@@ -177,6 +179,7 @@
                     {data: 'status', name: 'status'},
                     {data: 'phongban', name: 'phongban'},
                     {data: 'action', name: 'action', orderable : false, searchable : false},
+                    {data: 'delete', name: 'delete', orderable : false, searchable : false},
                 ]
             });
     });

@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 use Excel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Modules\Stuff\Entities\Stuff;
+use Illuminate\Contracts\View\View;
 
-class ExportController extends Controller implements FromCollection, WithHeadings
+class ExportController extends Controller implements FromView, WithHeadings
 {
     use Exportable;
     //
-    public function collection()
+
+    public function __construct(int $id)
     {
-        $stuffs = Stuff::all();
+        $this->id = $id;
+    }
+
+    public function view():View
+    {
+        $stuffs = Stuff::findOrFail($this->id);
         foreach ($stuffs as $row){
             $stuffs[] = array(
                 '0' => $row->id,
