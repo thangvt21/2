@@ -12,6 +12,12 @@
 */
 
 Auth::routes();
-Route::group(['middlewares' => ['auth']], function() {
-    Route::resource('phongbans', 'PhongbanController');
+Route::prefix('/phongban')->middleware('auth')->group(function (){
+    Route::get('/','PhongbanController@index')->name('phongban.index');
+    Route::get('/show/{id}','PhongbanController@show')->name('phongban.show');
+    Route::get('/create','PhongbanController@create')->name('phongban.create');
+    Route::post('/store','PhongbanController@store')->name('phongban.store');
+    Route::get('/edit/{id}','PhongbanController@edit')->name('phongban.edit');
+    Route::post('/update/{id}','PhongbanController@update')->name('phongban.update');
+    Route::post('/destroy','PhongbanController@destroy')->name('phongban.destroy');
 });

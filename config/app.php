@@ -177,7 +177,7 @@ return [
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class
     ],
 
     /*
@@ -231,6 +231,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Utilities' => Modules\Core\Helpers\Utilities::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class
     ],
 
 ];

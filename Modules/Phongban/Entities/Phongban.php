@@ -2,12 +2,13 @@
 
 namespace Modules\Phongban\Entities;
 
+use Modules\Core\Entities\BaseModel;
 use Modules\Nhanvien\Entities\Nhanvien;
 use Modules\Stuff\Entities\Stuff;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Phongban extends Model
+class Phongban extends BaseModel
 {
     protected $table ='phongbans';
 

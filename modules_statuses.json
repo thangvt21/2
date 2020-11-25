@@ -3,5 +3,8 @@
     "Phongban": true,
     "Stuff": true,
     "Entities": true,
-    "StuffSearch": true
+    "StuffSearch": true,
+    "Core": true,
+    "Subj": true,
+    "Subject": true
 }
