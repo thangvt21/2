@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 
 class PhongbanController extends Controller
 {
+    private $baseView = "phongban::phongban.";
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -21,12 +22,16 @@ class PhongbanController extends Controller
         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $phongbans = Phongban::latest()->paginate(5);
-        return view('phongban::index',compact('phongbans'))
-            ->with('i', (request()->input('page',1) - 1) * 5);
-        //
+        $title = "Danh sach phong ban";
+
+        \SEO::setTitle($title);
+
+        $param = [];
+        if($request->keyword){
+            $param['keyword'] = $request->keyword;
+        }
     }
 
 

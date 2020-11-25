@@ -21,12 +21,15 @@ class StuffController extends Controller
             }
             $stuffs = $data->select('*');
             return DataTables::of($stuffs)
-                    ->addColumn('action', function ($data){
-                        $button = '<a href="/stuffs/'.$data->id.'/edit" class="btn btn-secondary" style="margin-right: 10px;">Edit</a>';
-                        $button .= '<button type="submit" id="'.$data->id.'" class="btn btn-secondary">del</button>';
-                        return $button;
+                    ->addColumn('delete', function ($row){
+                        return '<form action="{{ route(\'stuffs.destroy\',$row->id) }}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">del</button></form>';
                     })
-                    ->rawColumns(['action'])
+                    ->addColumn('action', function ($row){
+                        return '<a href="/stuffs/'.$row->id.'/edit" class="btn btn-secondary">Edit</a>';
+                    })
+                    ->rawColumns(['action','delete'])
                     ->make(true);
             }
 
@@ -125,9 +128,9 @@ class StuffController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Stuff $stuff)
+    public function destroy($id)
     {
-        $stuff->delete();
+        DB::table("stuffs")->delete($id);
         return redirect()->route('stuffs.index')
             ->with('success');
         //

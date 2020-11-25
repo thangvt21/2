@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::group(['middlewares' => ['auth']], function() {
+Route::group(['middleware' => ['auth']], function() {
     Route::get('/', function () {
         return view('welcome');
     });

@@ -18,6 +18,6 @@ Auth::routes();
 Route::group(['middlewares' => ['auth']], function() {
     Route::resource('stuffs', 'StuffController');
     Route::get('/stuffs/show/{id}', 'StuffController@show')->name('Stuff.show');
-
+    Route::delete('/stuffs/{id}','StuffController@destroy');
 });
 route::get('stuffs',[StuffController::class, 'index'])->name('stuffs.index');
